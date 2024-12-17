@@ -1,0 +1,31 @@
+<div class="filter">
+  <form class="example-form">
+    <div class="form-name">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Digite seu nome" value="Vitor" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-date-picker">
+      <mat-form-field>
+        <mat-label>Data de cadastro</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="form-status">
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let food of foods; trackBy: trackByFood" [value]="food.value">
+            {{ food.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
